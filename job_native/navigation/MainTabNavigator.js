@@ -40,11 +40,11 @@ LinksStack.navigationOptions = {
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+  Settingss: SettingsScreen,
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Settingsp',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

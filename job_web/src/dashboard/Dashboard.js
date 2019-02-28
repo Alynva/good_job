@@ -113,21 +113,14 @@ class Dashboard extends Component {
         return (
             <div>
                 {width === 1 && <AppBarMobile title="Posters Galore Admin" />}
-                <Welcome style={styles.welcome} />
+                {/* <Welcome style={styles.welcome} /> */}
                 <div style={styles.flex}>
                     <div style={styles.leftCol}>
                         <div style={styles.flex}>
                             <MonthlyRevenue value={revenue} />
-                            <NbNewOrders value={nbNewOrders} />
-                        </div>
-                        <div style={styles.singleCol}>
-                            <PendingOrders orders={pendingOrders} customers={pendingOrdersCustomers} />
-                        </div>
-                    </div>
-                    <div style={styles.rightCol}>
-                        <div style={styles.flex}>
-                            <PendingReviews nb={nbPendingReviews} reviews={pendingReviews} customers={pendingReviewsCustomers} />
-                            <NewCustomers nb={nbNewCustomers} visitors={newCustomers} />
+                            <MonthlyRevenue value={revenue} />
+                            <MonthlyRevenue value={revenue} />
+                            <MonthlyRevenue value={revenue} />
                         </div>
                     </div>
                 </div>

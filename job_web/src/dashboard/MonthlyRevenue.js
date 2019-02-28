@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardTitle } from 'material-ui/Card';
-import DollarIcon from 'material-ui/svg-icons/editor/attach-money';
+//import DollarIcon from 'material-ui/svg-icons/editor/attach-money';
 import { translate } from 'admin-on-rest';
 
 const styles = {
@@ -10,7 +10,8 @@ const styles = {
 
 export default translate(({ value, translate }) => (
     <Card style={styles.card}>
-        <DollarIcon style={styles.icon} />
-        <CardTitle title={value} subtitle={translate('pos.dashboard.monthly_revenue')} />
+        {/* <DollarIcon style={styles.icon} /> */}
+        <CardTitle title={"Monitora"} subtitle={"Soluções Tecnológicas"}></CardTitle>
+        <CardTitle subtitle={"5 vagas Front-End"}></CardTitle>
     </Card>
 ));

@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/logo.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./src/assets/images/logo_splesh.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +24,11 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "androidStatusBarColor": "#334393",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#334393"
     }
   }
 }

@@ -4,12 +4,13 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import DefaultScreen from "./DefaultScreen";
 import { StyleSheet, Image, TouchableHighlight, TouchableOpacity } from "react-native"
 import Colors from "../constants/Colors"
+import { withNavigation } from "react-navigation";
 
 const REGIOES = ["São Carlos/SP", "Grande São Paulo/SP", "ABC/SP", "Cancelar"]
 
-export default class LandingPageScreen extends React.Component {
+class LandingPageScreen extends React.Component {
     state = {
-        isLoading: true,
+        isLoading: false,
         regiao: REGIOES[0],
         list: [
             {
@@ -74,7 +75,9 @@ export default class LandingPageScreen extends React.Component {
         
         this.setState({ list: newList, isLoading: false })
     }
+
     render() {
+        let navigator = this.props.navigation
         if (this.state.isLoading) {
             content = (
                 <Spinner />
@@ -86,7 +89,7 @@ export default class LandingPageScreen extends React.Component {
                     dataArray={this.state.list}
                     renderRow={data => {
                         return (
-                            <TouchableOpacity activeOpacity={0.7}>
+                            <TouchableOpacity activeOpacity={0.7} onPress={() => navigator.navigate("CompanyPage")}>
                                 <Card>
                                     <CardItem style={styles.cardItem}>
                                         <Left style={styles.cardLeft}>
@@ -182,3 +185,5 @@ const styles = StyleSheet.create({
         marginRight: 13
     }
 })
+
+export default withNavigation(LandingPageScreen)

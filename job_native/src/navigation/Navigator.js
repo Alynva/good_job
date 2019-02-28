@@ -1,6 +1,7 @@
 import React from "react"
-import { createDrawerNavigator, createAppContainer, createSwitchNavigator } from "react-navigation"
+import { createDrawerNavigator, createAppContainer, createSwitchNavigator} from "react-navigation"
 import LandingPageScreen from "../screens/LandingPageScreen"
+import CompanyPageScreen from "../screens/CompanyPageScreen"
 import SideBar from "./SideBar.js"
 
 // export default class Navigator extends React.Component {
@@ -11,18 +12,20 @@ import SideBar from "./SideBar.js"
 //     }
 // }
 
-const LandingPageRouter = createDrawerNavigator(
+const LandingPageRouter = createSwitchNavigator(
     {
-        LandingPage: { screen: LandingPageScreen }
+        LandingPage: { screen: LandingPageScreen, path : "LandingPage" },
+        CompanyPage: { screen: CompanyPageScreen, path : "CompanyPage" }
     }, {
-        contentComponent: props => <SideBar {...props} />
+        initialRouteName: "LandingPage"
     }
 )
 
-export default createAppContainer(createSwitchNavigator(
+export default createAppContainer(createDrawerNavigator(
     {
-        LandingPage: LandingPageRouter
+        CompanyPage: LandingPageRouter
     }, {
-        initialRouteName: "LandingPage"
+        contentComponent: props => <SideBar {...props} />
+        
     }
 ))

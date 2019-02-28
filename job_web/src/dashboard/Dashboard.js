@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import withWidth from 'material-ui/utils/withWidth';
 import { AppBarMobile, GET_LIST, GET_MANY } from 'admin-on-rest';
+import axios from 'axios';
 
-import Welcome from './Welcome';
+// import Welcome from './Welcome';
 import MonthlyRevenue from './MonthlyRevenue';
-import NbNewOrders from './NbNewOrders';
-import PendingOrders from './PendingOrders';
-import PendingReviews from './PendingReviews';
-import NewCustomers from './NewCustomers';
+// import NbNewOrders from './NbNewOrders';
+// import PendingOrders from './PendingOrders';
+// import PendingReviews from './PendingReviews';
+// import NewCustomers from './NewCustomers';
 import restClient from '../restClient';
 
 const styles = {
@@ -19,9 +20,11 @@ const styles = {
 };
 
 class Dashboard extends Component {
-    state = {};
+    state = {cards:[]};
 
     componentDidMount() {
+        axios.get("https://us-central1-good-jobs-6e71f.cloudfunctions.net/getAllCompanies")
+        .then(res => this.setState({cards: res.data}));
         const d = new Date();
         d.setDate(d.getDate() - 30);
         restClient(GET_LIST, 'commands', {
@@ -99,28 +102,22 @@ class Dashboard extends Component {
 
     render() {
         const {
-            nbNewCustomers,
-            nbNewOrders,
-            nbPendingReviews,
-            newCustomers,
-            pendingOrders,
-            pendingOrdersCustomers,
-            pendingReviews,
-            pendingReviewsCustomers,
             revenue,
+            cards
         } = this.state;
         const { width } = this.props;
+        
         return (
             <div>
-                {width === 1 && <AppBarMobile title="Posters Galore Admin" />}
+                {width === 1 && <AppBarMobile title="Good Job" />}
                 {/* <Welcome style={styles.welcome} /> */}
                 <div style={styles.flex}>
                     <div style={styles.leftCol}>
                         <div style={styles.flex}>
-                            <MonthlyRevenue value={revenue} />
-                            <MonthlyRevenue value={revenue} />
-                            <MonthlyRevenue value={revenue} />
-                            <MonthlyRevenue value={revenue} />
+                            {cards.map((card, index) =>(                            
+                                <MonthlyRevenue key={index} card={card} value={revenue} />
+                                )
+                            )}
                         </div>
                     </div>
                 </div>

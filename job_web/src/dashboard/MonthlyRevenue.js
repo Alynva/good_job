@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle } from 'material-ui/Card';
+import { Card, CardTitle} from 'material-ui/Card';
 //import DollarIcon from 'material-ui/svg-icons/editor/attach-money';
 import { translate } from 'admin-on-rest';
 
@@ -8,10 +8,10 @@ const styles = {
     icon: { float: 'right', width: 64, height: 64, padding: 16, color: '#31708f' },
 };
 
-export default translate(({ value, translate }) => (
-    <Card style={styles.card}>
+export default translate(({ value, translate, card }) => (
+    <Card style={styles.card} onClick={() => alert(`${card.name} foi clicado!`)}>
         {/* <DollarIcon style={styles.icon} /> */}
-        <CardTitle title={"Monitora"} subtitle={"Soluções Tecnológicas"}></CardTitle>
-        <CardTitle subtitle={"5 vagas Front-End"}></CardTitle>
+        <CardTitle title={card.name} subtitle={card.slogan}></CardTitle>
+        <CardTitle subtitle={card.n_jobs}></CardTitle>
     </Card>
 ));

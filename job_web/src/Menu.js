@@ -1,22 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
-import LabelIcon from 'material-ui/svg-icons/action/label';
 import { translate, DashboardMenuItem, MenuItemLink } from 'admin-on-rest';
 
-import { VisitorIcon } from './visitors';
-import { CommandIcon } from './commands';
-import { ProductIcon } from './products';
-import { CategoryIcon } from './categories';
+// import { VisitorIcon } from './visitors';
+// import { CommandIcon } from './commands';
+// import { ProductIcon } from './products';
+// import { CategoryIcon } from './categories';
 import { ReviewIcon } from './reviews';
 
 const items = [
-    { name: 'customers', icon: <VisitorIcon /> },
-    { name: 'segments', icon: <LabelIcon /> },
-    { name: 'commands', icon: <CommandIcon /> },
-    { name: 'products', icon: <ProductIcon /> },
-    { name: 'categories', icon: <CategoryIcon /> },
+    // { name: 'customers', icon: <VisitorIcon /> },
+    // { name: 'segments', icon: <LabelIcon /> },
+    // { name: 'commands', icon: <CommandIcon /> },
+    // { name: 'products', icon: <ProductIcon /> },
+    // { name: 'categories', icon: <CategoryIcon /> },
     { name: 'reviews', icon: <ReviewIcon /> },
 ];
 
@@ -35,18 +33,12 @@ const Menu = ({ onMenuTap, translate, logout }) => (
         {items.map(item => (
             <MenuItemLink
                 key={item.name}
-                to={`/${item.name}`}
-                primaryText={translate(`resources.${item.name}.name`, { smart_count: 2 })}
+                to="/reviews"
+                primaryText="Mensagens"
                 leftIcon={item.icon}
                 onClick={onMenuTap}
             />
         ))}
-        <MenuItemLink
-            to="/configuration"
-            primaryText={translate('pos.configuration')}
-            leftIcon={<SettingsIcon />}
-            onClick={onMenuTap}
-        />
         {logout}
     </div>
 );

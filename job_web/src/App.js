@@ -6,7 +6,6 @@ import './App.css';
 
 import authClient from './authClient';
 import sagas from './sagas';
-import themeReducer from './themeReducer';
 import Login from './Login';
 import Layout from './Layout';
 import Menu from './Menu';
@@ -35,9 +34,8 @@ class App extends Component {
     render() {
         return (
             <Admin
-                title="Posters Galore Admin"
+                title="Good Job"
                 restClient={restClient}
-                customReducers={{ theme: themeReducer }}
                 customSagas={sagas}
                 customRoutes={customRoutes}
                 authClient={authClient}

@@ -2,7 +2,7 @@ import React from "react"
 import { View, Container, Header, Left, Button, Body, Right, Title, Text, List, ListItem, Card, CardItem } from "native-base";
 import Icon from "react-native-vector-icons/FontAwesome"
 import DefaultScreen from "./DefaultScreen";
-import { StyleSheet, Image } from "react-native"
+import { StyleSheet, Image, TouchableOpacity } from "react-native"
 import Colors from "../constants/Colors"
 
 const list = [
@@ -57,24 +57,26 @@ export default class LandingPageScreen extends React.Component {
             dataArray={list}
             renderRow={data => {
               return (
-                <Card>
-                    <CardItem style={styles.cardItem}>
-                          <Left style={styles.cardLeft}>
-                            <View style={styles.leftHolder}>
-                                <Text style={styles.name}>{data.name}</Text>
-                                <Text style={styles.slogan}>{data.slogan}</Text>
-                                <Text style={styles.jobs}>{data.jobs}</Text>
-                            </View>
-                        </Left>
-                        <Right style={styles.cardRight}>
-                            <Image
-                                square large
-                                source={{uri: data.picture}}
-                                style={{height: 200, width: 150, flex: 1}}
-                            />
-                        </Right>
-                    </CardItem>
-                </Card>
+                <TouchableOpacity activeOpacity={0.7}>
+                    <Card>
+                        <CardItem style={styles.cardItem}>
+                            <Left style={styles.cardLeft}>
+                                <View style={styles.leftHolder}>
+                                    <Text style={styles.name}>{data.name}</Text>
+                                    <Text style={styles.slogan}>{data.slogan}</Text>
+                                    <Text style={styles.jobs}>{data.jobs}</Text>
+                                </View>
+                            </Left>
+                            <Right style={styles.cardRight}>
+                                <Image
+                                    square large
+                                    source={{uri: data.picture}}
+                                    style={{height: 200, width: 150, flex: 1}}
+                                />
+                            </Right>
+                        </CardItem>
+                    </Card>
+                </TouchableOpacity>
               );
             }}
         />

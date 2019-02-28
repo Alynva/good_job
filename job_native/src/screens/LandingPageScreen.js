@@ -3,6 +3,7 @@ import { View, Container, Header, Left, Button, Body, Right, Title, Text, List, 
 import Icon from "react-native-vector-icons/FontAwesome"
 import DefaultScreen from "./DefaultScreen";
 import { StyleSheet, Image } from "react-native"
+import Colors from "../constants/Colors"
 
 const list = [
     {
@@ -16,7 +17,37 @@ const list = [
         slogan: "A gente trabalha para você crescer",
         jobs: "24 vagas",
         picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
-    }
+    },
+    {
+        name: "Serasa Experian",
+        slogan: "A gente trabalha para você crescer",
+        jobs: "24 vagas",
+        picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+    },
+    {
+        name: "Serasa Experian",
+        slogan: "A gente trabalha para você crescer",
+        jobs: "24 vagas",
+        picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+    },
+    {
+        name: "Serasa Experian",
+        slogan: "A gente trabalha para você crescer",
+        jobs: "24 vagas",
+        picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+    },
+    {
+        name: "Serasa Experian",
+        slogan: "A gente trabalha para você crescer",
+        jobs: "24 vagas",
+        picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+    },
+    {
+        name: "Serasa Experian",
+        slogan: "A gente trabalha para você crescer",
+        jobs: "24 vagas",
+        picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+    },
 ]
 
 export default class LandingPageScreen extends React.Component {
@@ -48,9 +79,26 @@ export default class LandingPageScreen extends React.Component {
             }}
         />
     )
+    footer = (
+        <View style={styles.footer}>
+            <Icon
+                style={{...styles.white, ...styles.icon}}
+                name="filter"
+                size={25}
+            />
+            <View>
+                <Text style={{...styles.white, ...styles.small_text}}>Região</Text>
+                <Text style={styles.white}>São Carlos/SP</Text>
+            </View>
+        </View>
+    )
     render() {
         return (
-            <DefaultScreen title="Início" content={this.content} {...this.props} />
+            <DefaultScreen
+                title="Início"
+                content={this.content}
+                footer={this.footer}
+                {...this.props} />
         )
     }
 }
@@ -78,5 +126,21 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 28,
         textAlign: "left",
+    },
+    footer: {
+        flex: 1,
+        padding: 13,
+        backgroundColor: Colors.tintColor,
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    white: {
+        color: "#fff"
+    },
+    small_text: {
+        fontSize: 10
+    },
+    icon: {
+        marginRight: 13
     }
 })

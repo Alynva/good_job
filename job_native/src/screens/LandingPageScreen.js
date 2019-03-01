@@ -140,13 +140,11 @@ const styles = StyleSheet.create({
     cardItem: {
     },
     cardLeft: {
-        position: "relative",
+        alignItems: "stretch",
+        justifyContent: "flex-end",
     },
     leftHolder: {
-        flexDirection: "column",
-        justifyContent: 'space-between',
         flex: 1,
-        position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
     },
     cardRight: {
         flex: 1,

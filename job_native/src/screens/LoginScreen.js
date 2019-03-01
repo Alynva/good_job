@@ -9,7 +9,7 @@ export default class LoginScreen extends React.Component {
         this.props.navigation.navigate(this.props.navigation.state.params.redirectTo)
     }
     _handleSkip = () => {
-        this.props.navigation.navigate(this.props.navigation.state.params.redirectTo)
+        this.props.navigation.navigate(this.props.navigation.state.params.backTo)
     }
     render() {
         let content = (

@@ -11,20 +11,27 @@ class CompanyPageScreen extends React.Component {
         jobs: "30 vagas",
         picture: "https://www.monitoratec.com.br/img/monitora-ambiente.jpg",
         listaVagas: [
-            {nome: "Front-End", qtd: 3},
-            {nome: "Back-End", qtd: 2},
-            {nome: "Front-End", qtd: 3},
-            {nome: "Back-End", qtd: 2},
-            {nome: "Front-End", qtd: 3},
-            {nome: "Back-End", qtd: 2},
-            {nome: "Front-End", qtd: 3},
-            {nome: "Back-End", qtd: 2},
+            { nome: "Front-End", qtd: 3 },
+            { nome: "Back-End", qtd: 2 },
+            { nome: "Front-End", qtd: 3 },
+            { nome: "Back-End", qtd: 2 },
+            { nome: "Front-End", qtd: 3 },
+            { nome: "Back-End", qtd: 2 },
+            { nome: "Front-End", qtd: 3 },
+            { nome: "Back-End", qtd: 2 },
         ],
         classificacao: 9.5
     }
+
+    _handleChat = () => {
+        let destination = this.props.navigation.state.routeName
+        if (this.props.screenProps.user)
+            this.props.navigation.navigate("ChatPage")
+        else
+            this.props.navigation.navigate("LoginPage", { redirectTo: "ChatPage", backTo: destination })
+    }
     
     render() {
-        let navigator = this.props.navigation
         
         content = (
             <Container>
@@ -41,20 +48,20 @@ class CompanyPageScreen extends React.Component {
                     dataArray={this.state.listaVagas}
                     renderRow={data => {
                         return (
-                                <View>
-                                    <ListItem onPress={() => navigator.navigate("JobPage")}>
-                                        <Left style={styles.listItemLeft}>
-                                            <View style={styles.leftHolder}>
-                                                <Text>{data.nome}</Text>                                             
-                                            </View>
-                                        </Left>
-                                        <Right style={styles.listItemLeft}>
-                                            <View style={styles.rightHolder}>
-                                                <Text>{data.qtd}</Text>                                             
-                                            </View>
-                                        </Right>
-                                    </ListItem>
-                                </View>
+                            <View>
+                                <ListItem onPress={() => this.props.navigation.navigate("JobPage")}>
+                                    <Left style={styles.listItemLeft}>
+                                        <View style={styles.leftHolder}>
+                                            <Text>{data.nome}</Text>
+                                        </View>
+                                    </Left>
+                                    <Right style={styles.listItemLeft}>
+                                        <View style={styles.rightHolder}>
+                                            <Text>{data.qtd}</Text>
+                                        </View>
+                                    </Right>
+                                </ListItem>
+                            </View>
                             
                         );
                     }}
@@ -69,7 +76,7 @@ class CompanyPageScreen extends React.Component {
              
         )
         footer = (
-            <Button rounded onPress={() => navigator.navigate("LandingPage")}>
+            <Button rounded onPress={this._handleChat}>
                 <Text> Conversar </Text>
             </Button>
         )

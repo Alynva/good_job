@@ -2,6 +2,12 @@
   "expo": {
     "name": "Good Job",
     "slug": "good_job",
+    "description": "Encontre a empresa que mais combina com você!",
+    "keywords": [
+      "jobs", "react", "react-native"
+    ],
+    "website": "https://expo.io/@ota/good_job",
+    "repository": "https://github.com/Alynva/good_job",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -10,9 +16,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/logo.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./src/assets/images/logo_splesh.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +30,11 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "androidStatusBarColor": "#334393",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#334393"
     }
   }
 }

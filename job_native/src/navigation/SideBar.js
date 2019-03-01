@@ -13,12 +13,13 @@ import {
 const routes = ["LandingPage", "MessagesPage"];
 
 export default class SideBar extends React.Component {
-	_handleLoginButton = () => {
-		let destination = this.props.navigation.state.routes[this.props.navigation.state.index].routeName
+	_handleLoginButton = () => {console.log(this.props.navigation)
+		let destination = this.props.navigation.state.routes[0].routes[this.props.navigation.state.routes[0].index].routeName
 		this.props.navigation.navigate("LoginPage", {
 			redirectTo: destination,
 			backTo: destination
 		})
+		this.props.navigation.closeDrawer()
 	}
 	_handleListPress = data => {
 		switch (data) {

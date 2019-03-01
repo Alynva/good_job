@@ -39,7 +39,6 @@ class ChatPageScreen extends React.Component {
     }
 
     render() {
-        console.log(this.props.navigation)
         container = (
             <GiftedChat
                 messages={this.state.messages}

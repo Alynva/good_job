@@ -34,7 +34,7 @@ class CompanyPageScreen extends React.Component {
                     title: "Com qual cargo deseja conversar"
                 }, 
                 buttonIndex => {
-                    this.props.navigation.navigate("ChatPage", { chat: CARGOS[buttonIndex] })
+                    this.props.navigation.navigate("ChatPage", { company: this.state.name, job: CARGOS[buttonIndex] })
                 }
             )
         } else

@@ -5,6 +5,9 @@ import { StyleSheet } from "react-native"
 
 export default class DefaultScreen extends React.Component {
     render() {
+        let footer
+        if(this.props.footer)
+            footer = <Footer style={styles.footer}>{this.props.footer}</Footer>
         return (
             <Container>
                 <Header>
@@ -25,8 +28,8 @@ export default class DefaultScreen extends React.Component {
                     </Body>
                     <Right>{this.props.right}</Right>
                 </Header>
-                <Content>{this.props.content}</Content>
-                <Footer style={styles.footer}>{this.props.footer}</Footer>
+                <Container>{this.props.content}</Container>
+                {footer}
             </Container>
         )
     }

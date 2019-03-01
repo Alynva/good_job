@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import withWidth from 'material-ui/utils/withWidth';
 import { AppBarMobile, GET_LIST, GET_MANY } from 'admin-on-rest';
 import axios from 'axios';
-
-// import Welcome from './Welcome';
 import MonthlyRevenue from './MonthlyRevenue';
-// import NbNewOrders from './NbNewOrders';
-// import PendingOrders from './PendingOrders';
-// import PendingReviews from './PendingReviews';
-// import NewCustomers from './NewCustomers';
 import restClient from '../restClient';
 
 const styles = {
@@ -101,10 +95,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const {
-            revenue,
-            cards
-        } = this.state;
+        const { revenue, cards } = this.state;
         const { width } = this.props;
         
         return (

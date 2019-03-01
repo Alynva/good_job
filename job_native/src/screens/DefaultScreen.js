@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Container, Header, Left, Button, Body, Right, Title, Content, Footer } from "native-base";
+import { Container, Header, Left, Button, Body, Title, Content, Footer } from "native-base";
 import Icon from "react-native-vector-icons/FontAwesome"
 import { StyleSheet } from "react-native"
 
@@ -27,10 +27,9 @@ export default class DefaultScreen extends React.Component {
                             />
                         </Button>
                     </Left>
-                    <Body>
+                    <Body style={{marginLeft:-80}}>
                         <Title>{this.props.title}</Title>
                     </Body>
-                    <Right>{this.props.right}</Right>
                 </Header>
                 {container}
                 {content}

@@ -26,12 +26,23 @@ export default class SideBar extends React.Component {
 			case "Sair":
 				this.props.screenProps.logout()
 				break;
+			case "MessagesPage":
+				let backDestination = this.props.navigation.state.routes[0].routes[0].routeName
+				console.log(this.props.navigation)
+				if (this.props.screenProps.user) {
+					this.props.navigation.navigate(data)
+				} else
+					this.props.navigation.navigate("LoginPage", {
+						redirectTo: data,
+						backTo: backDestination,
+					})
+				break;
 		
 			default:
 				this.props.navigation.navigate(data)
-				this.props.navigation.closeDrawer()
 				break;
 		}
+		this.props.navigation.closeDrawer()
 
 	}
 	render() {

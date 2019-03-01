@@ -33,10 +33,16 @@ export default class MessagesPageScreen extends React.Component {
 
     _handleChat = () => {
         let destination = this.props.navigation.state.routeName
+        console.log(destination)
         if (this.props.screenProps.user)
             this.props.navigation.navigate("ChatPage")
         else
             this.props.navigation.navigate("LoginPage", { redirectTo: "ChatPage", backTo: destination })
+    }
+    componentDidUpdate() {
+        if (!this.props.screenProps.user) {
+            this.props.navigation.navigate("LoginPage")
+        }
     }
     
     render() {

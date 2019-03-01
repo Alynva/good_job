@@ -42,6 +42,7 @@ class ChatPageScreen extends React.Component {
                 user={{
                     _id: 1,
                 }}
+                placeholder="Escreva uma mensagem..."
             />
         )
         let {company, job} = this.props.navigation.state.params

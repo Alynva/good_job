@@ -6,7 +6,8 @@ import { StyleSheet } from "react-native"
 export default class LoginScreen extends React.Component {
     _handleLogin = () => {
         this.props.screenProps.login()
-        this.props.navigation.navigate(this.props.navigation.state.params.redirectTo)
+        let { redirectTo } = this.props.navigation.state.params
+        this.props.navigation.navigate(redirectTo)
     }
     _handleSkip = () => {
         this.props.navigation.navigate(this.props.navigation.state.params.backTo)

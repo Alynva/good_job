@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, Button, List, Card, CardItem, Left, Right, ListItem, Container } from "native-base";
+import { View, Text, Button, List, Card, CardItem, Left, Right, ListItem, Container, ActionSheet } from "native-base";
 import DefaultScreen from "./DefaultScreen";
 import { StyleSheet, Image, TouchableHighlight, TouchableOpacity, BackHandler } from "react-native";
 import { withNavigation } from "react-navigation";
+
+const CARGOS = ["Back-end", "Front-end", "RH"]
 
 class CompanyPageScreen extends React.Component {
     state = {
@@ -25,10 +27,23 @@ class CompanyPageScreen extends React.Component {
 
     _handleChat = () => {
         let destination = this.props.navigation.state.routeName
-        if (this.props.screenProps.user)
-            this.props.navigation.navigate("ChatPage")
-        else
-            this.props.navigation.navigate("LoginPage", { redirectTo: "ChatPage", backTo: destination })
+        if (this.props.screenProps.user) {
+            ActionSheet.show({
+                    options: CARGOS,
+                    title: "Com qual cargo deseja conversar"
+                }, 
+                buttonIndex => {
+                    this.props.navigation.navigate("ChatPage", { chat: CARGOS[buttonIndex] })
+                }
+            )
+        } else
+            this.props.navigation.navigate("LoginPage", {
+                redirectTo: destination,
+                redirectToProps: {
+                    openActionSheet: true
+                },
+                backTo: destination
+            })
     }
     
     render() {

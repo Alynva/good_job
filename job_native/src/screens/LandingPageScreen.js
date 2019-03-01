@@ -59,15 +59,16 @@ class LandingPageScreen extends React.Component {
     }
     _handleFilterPress = () => {
         ActionSheet.show({
-            options: REGIOES,
-            cancelButtonIndex: REGIOES.length-1,
-            title: "Escolha sua região"
-        }, 
-        buttonIndex => {
-            if (buttonIndex != REGIOES.length - 1) {
-                this.setState({ regiao: REGIOES[buttonIndex] }, this._updateList);
+                options: REGIOES,
+                cancelButtonIndex: REGIOES.length-1,
+                title: "Escolha sua região"
+            }, 
+            buttonIndex => {
+                if (buttonIndex != REGIOES.length - 1) {
+                    this.setState({ regiao: REGIOES[buttonIndex] }, this._updateList);
+                }
             }
-        })
+        )
     }
     _updateList() {
         this.setState({ isLoading: true })

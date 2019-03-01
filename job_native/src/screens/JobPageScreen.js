@@ -14,6 +14,20 @@ class JobPageScreen extends React.Component {
         candidatado: false,
         txtBtn: "Candidatar",
     }
+
+    _handlePress = () => {
+        let destination = this.props.navigation.state.routeName
+        if (this.props.screenProps.user) {
+            this.setState({
+                candidatado: true, 
+                txtBtn: "Aguardando resposta ...",
+            })
+        } else
+            this.props.navigation.navigate("LoginPage", {
+                redirectTo: destination,
+                backTo: destination
+            })
+    }
     
     render() {
         let navigator = this.props.navigation
@@ -157,12 +171,7 @@ class JobPageScreen extends React.Component {
             <View style={styles.buttonView}>
                 <Button 
                     rounded 
-                    onPress={() => {
-                        this.setState({
-                            candidatado: true, 
-                            txtBtn: "Aguardando resposta ...",
-                        })
-                    }}
+                    onPress={this._handlePress}
                     disabled={this.state.candidatado}
                 >
                     <Text> {this.state.txtBtn} </Text>

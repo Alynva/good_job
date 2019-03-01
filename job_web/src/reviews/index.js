@@ -16,6 +16,7 @@ import Icon from 'material-ui/svg-icons/communication/comment';
 import ProductReferenceField from '../products/ProductReferenceField';
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
 import rowStyle from './rowStyle';
+import { Card } from 'material-ui';
 
 export const ReviewIcon = Icon;
 
@@ -31,15 +32,16 @@ export const ReviewFilter = (props) => (
 );
 
 export const ReviewList = (props) => (
-    <List {...props} filters={<ReviewFilter />} perPage={25} sort={{ field: 'date', order: 'DESC' }}>
-        <Datagrid rowStyle={rowStyle}>
-            <DateField source="date" />
-            <CustomerReferenceField />
-            <ProductReferenceField />
-            <TextField source="comment" style={{ maxWidth: '18em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} />
-            <TextField source="status" />>
-            <EditButton style={{ padding: 0 }} />
-        </Datagrid>
-    </List>
+    // <List {...props} filters={<ReviewFilter />} perPage={25} sort={{ field: 'date', order: 'DESC' }}>
+    //     <Datagrid rowStyle={rowStyle}>
+    //         <DateField source="date" />
+    //         <CustomerReferenceField />
+    //         <ProductReferenceField />
+    //         <TextField source="comment" style={{ maxWidth: '18em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} />
+    //         <TextField source="status" />>
+    //         <EditButton style={{ padding: 0 }} />
+    //     </Datagrid>
+    // </List>
+    <div><Card/></div>
 );
 

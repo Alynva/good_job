@@ -10,7 +10,7 @@ import {
 	Content,
 } from "native-base";
 
-const routes = ["LandingPage", "MessagesPage", "Profile"];
+const routes = ["LandingPage", "MessagesPage"];
 
 export default class SideBar extends React.Component {
 	_handleLoginButton = () => {
@@ -45,6 +45,10 @@ export default class SideBar extends React.Component {
 				<Button style={{alignSelf: "center"}} onPress={this._handleLoginButton}><Text>Fazer login</Text></Button>
 			)
 		}
+		let nome = {
+			LandingPage: "Página inicial",
+			MessagesPage: "Mensagens",
+		}
 		return (
 			<Container>
 				<Content>
@@ -68,7 +72,7 @@ export default class SideBar extends React.Component {
 									button
 									onPress={() => this._handleListPress(data)}
 								>
-									<Text>{data}</Text>
+									<Text>{nome[data]}</Text>
 								</ListItem>
 							);
 						}}

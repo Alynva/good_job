@@ -7,7 +7,6 @@ import { GiftedChat } from 'react-native-gifted-chat'
 
 class ChatPageScreen extends React.Component {
     state = {
-        name: "Monitora",
         messages: [],
     }
 
@@ -35,6 +34,7 @@ class ChatPageScreen extends React.Component {
     }
 
     render() {
+        console.log(this.props.navigation)
         container = (
             <GiftedChat
                 messages={this.state.messages}
@@ -44,9 +44,10 @@ class ChatPageScreen extends React.Component {
                 }}
             />
         )
+        let {company, job} = this.props.navigation.state.params
         return (
             <DefaultScreen
-                title={this.state.name}
+                title={company + " - " + job}
                 container={container}
                 {...this.props} />
         )

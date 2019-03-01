@@ -49,6 +49,7 @@ export default class SideBar extends React.Component {
 		let nome = {
 			LandingPage: "Página inicial",
 			MessagesPage: "Mensagens",
+			Sair: "Sair",
 		}
 		return (
 			<Container>

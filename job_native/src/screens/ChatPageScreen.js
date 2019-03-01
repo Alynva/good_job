@@ -10,22 +10,33 @@ class ChatPageScreen extends React.Component {
         messages: [],
     }
 
-    /*
     componentWillMount() {
-        this.setState({
-            messages: [{
-                _id: 1,
-                text: 'Hello developer',
-                createdAt: new Date(),
-                user: {
-                    _id: 2,
-                    name: 'React Native',
-                    // avatar: 'https://placeimg.com/140/140/any',
-                },
-            },],
-        })
+        let {company, job} = this.props.navigation.state.params
+        if(company == "Monitora" && job == "Front-End Developer"){
+            this.setState({
+                messages: [
+                    {
+                        _id: 1,
+                        text: 'Olá Alisson! Fico feliz em poder te ajudar! Aqui nós usamos bastante React e ReactNative. Aproveite para participar dos nossos workshops de React no Monitora Summer!',
+                        createdAt: new Date("01/03/2019 05:02"),
+                        user: {
+                            _id: 2,
+                            name: 'Monitora',
+                        },
+                    },
+                    {
+                        _id: 2,
+                        text: 'Olá, Monitora! Gostaria de saber as tecnologias que vocês mais usam no desenvolvimento front-end :D',
+                        createdAt: new Date("01/03/2019 05:01"),
+                        user: {
+                            _id: 1,
+                            name: 'Monitora',
+                        },
+                    },
+                ],
+            })
+        }
     }
-    */
 
     onSend(messages = []) {
         this.setState(previousState => ({
@@ -34,7 +45,6 @@ class ChatPageScreen extends React.Component {
     }
 
     render() {
-        console.log(this.props.navigation)
         container = (
             <GiftedChat
                 messages={this.state.messages}

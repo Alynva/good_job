@@ -10,17 +10,18 @@ class CompanyPageScreen extends React.Component {
     state = {
         name: "Monitora",
         slogan: "Soluções tecnológicas",
-        jobs: "30 vagas",
+        jobs: "57 vagas",
         picture: "https://www.monitoratec.com.br/img/monitora-ambiente.jpg",
         listaVagas: [
-            { nome: "Front-End", qtd: 3 },
-            { nome: "Back-End", qtd: 2 },
-            { nome: "Front-End", qtd: 3 },
-            { nome: "Back-End", qtd: 2 },
-            { nome: "Front-End", qtd: 3 },
-            { nome: "Back-End", qtd: 2 },
-            { nome: "Front-End", qtd: 3 },
-            { nome: "Back-End", qtd: 2 },
+            { nome: "Desenvolvedor Android", qtd: 6 },
+            { nome: "Desenvolvedor iOS", qtd: 8 },
+            { nome: "Dev Full Stack", qtd: 5 },
+            { nome: "Desenvolvedor de Infraestrutura", qtd: 7 },
+            { nome: "Estágio", qtd: 7 },
+            { nome: "Arquiteto de Software", qtd: 8 },
+            { nome: "DevOps", qtd: 9 },
+            { nome: "Quality Assurance Analist", qtd: 2 },
+            { nome: "Product Owner", qtd: 5 },
         ],
         classificacao: 9.5
     }

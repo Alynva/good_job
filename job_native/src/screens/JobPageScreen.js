@@ -6,10 +6,10 @@ import { withNavigation } from "react-navigation";
 
 class JobPageScreen extends React.Component {
     state = {
-        title: "Front-End",
+        title: "Desenvolvedor Android",
         company: "Monitora",
         picture: "https://www.monitoratec.com.br/img/monitora-ambiente.jpg",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        desc: "Procuramos por Desenvolvedores Android que gostem da ideia de aprender algo novo todos os dias, e de conviver com pessoas e estilos de trabalho diferentes. Que gostem muito de codar, tem paixão por desenvolver bonito (código + interface), sabem que arquitetura é algo importante e que quando \"só falta testar\" ainda falta muita coisa. Que gostem muito do mundo Mobile e curtam a ideia de contribuir para o aprendizado e desenvolvimento dos colaboradores com menos experiência.",
         count: 3,
         candidatado: false,
         txtBtn: "Candidatar",

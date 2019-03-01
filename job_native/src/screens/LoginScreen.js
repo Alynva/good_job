@@ -15,7 +15,7 @@ export default class LoginScreen extends React.Component {
     render() {
         let content = (
             <Container style={{...styles.login_container}}>
-                <Text style={{...styles.login_text}}>Ao fazer login, você poderá ter acesso à novas funcionalidades, tais como entrar em contato direto com colaboradores das empresas, candita-se à vagas e muito mais!</Text>
+                <Text style={{...styles.login_text}}>Ao fazer login, você poderá ter acesso a novas funcionalidades, tais como entrar em contato direto com colaboradores das empresas, candidatar-se a vagas e muito mais!</Text>
                 <Button
                     style={{ alignSelf: "center" }}
                     large onPress={this._handleLogin}

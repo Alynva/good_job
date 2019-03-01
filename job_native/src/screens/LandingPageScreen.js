@@ -15,7 +15,7 @@ class LandingPageScreen extends React.Component {
         list: [
             {
                 name: "Monitora",
-                slogan: "Soluções tecnologicas",
+                slogan: "Soluções tecnológicas",
                 jobs: "57 vagas",
                 picture: "https://www.monitoratec.com.br/img/monitora-ambiente.jpg",
             },

@@ -35,7 +35,7 @@ class ChatPageScreen extends React.Component {
     }
 
     render() {
-        content = (
+        container = (
             <GiftedChat
                 messages={this.state.messages}
                 onSend={messages => this.onSend(messages)}
@@ -47,7 +47,7 @@ class ChatPageScreen extends React.Component {
         return (
             <DefaultScreen
                 title={this.state.name}
-                content={content}
+                container={container}
                 {...this.props} />
         )
     }

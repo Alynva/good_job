@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, List, Card, CardItem, Left, Right, ListItem } from "native-base";
+import { View, Text, Button, List, Card, CardItem, Left, Right, ListItem, Container } from "native-base";
 import DefaultScreen from "./DefaultScreen";
 import { StyleSheet, Image, TouchableHighlight, TouchableOpacity, BackHandler } from "react-native";
 import { withNavigation } from "react-navigation";
@@ -27,11 +27,11 @@ class CompanyPageScreen extends React.Component {
         let navigator = this.props.navigation
         
         content = (
-            <View>
+            <Container>
                 <Image
                     square large
                     source={{ uri: this.state.picture }}
-                    style={{ height: 200, width: 400, flex: 1 }}
+                    style={{ height: 200, width: "100%" }}
                 />
                 <ListItem itemHeader first>
                     <Text> Vagas </Text>
@@ -65,7 +65,7 @@ class CompanyPageScreen extends React.Component {
                     <Text> Classificação: {this.state.classificacao} </Text>
                 </ListItem>
             
-            </View>
+            </Container>
              
         )
         footer = (

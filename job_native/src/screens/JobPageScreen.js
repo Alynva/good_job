@@ -23,7 +23,7 @@ class JobPageScreen extends React.Component {
                 <Image
                     square large
                     source={{ uri: this.state.picture }}
-                    style={{ height: 200, width: 400, flex: 1 }}
+                    style={{ height: 200, width: "100%", flex: 1 }}
                 />
                 <ListItem itemHeader first>
                     <Text> Descrição </Text>

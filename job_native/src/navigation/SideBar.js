@@ -10,7 +10,7 @@ import {
 	Content,
 } from "native-base";
 
-const routes = ["LandingPage", "Chat", "Profile"];
+const routes = ["LandingPage", "ChatPage", "Profile"];
 
 export default class SideBar extends React.Component {
 	_handleLoginButton = () => {

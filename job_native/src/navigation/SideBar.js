@@ -1,62 +1,101 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import {
-  Button,
-  Text,
-  Container,
-  List,
-  ListItem,
-  Content,
-  Icon
+	View,
+	Button,
+	Text,
+	Container,
+	List,
+	ListItem,
+	Content,
 } from "native-base";
+
 const routes = ["LandingPage", "Chat", "Profile"];
+
 export default class SideBar extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Content>
-          <Image
-            source={{
-              uri:
-                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
-            }}
-            style={{
-              height: 120,
-              width: "100%",
-              alignSelf: "stretch",
-              position: "absolute"
-            }}
-          />
-          <Image
-            square
-            style={{
-              height: 80,
-              width: 70,
-              position: "absolute",
-              alignSelf: "center",
-              top: 20
-            }}
-            source={{
-              uri:
-                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png"
-            }}
-          />
-          <List
-            dataArray={routes}
-            contentContainerStyle={{ marginTop: 120 }}
-            renderRow={data => {
-              return (
-                <ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate(data)}
-                >
-                  <Text>{data}</Text>
-                </ListItem>
-              );
-            }}
-          />
-        </Content>
-      </Container>
-    );
-  }
+	_handleLoginButton = () => {
+		// this.props.screenProps.login()
+		console.log(this.props.navigation.state.routes[this.props.navigation.state.index].routeName)
+		this.props.navigation.navigate("LoginPage", {
+			redirectTo: this.props.navigation.state.routes[this.props.navigation.state.index].routeName
+		})
+	}
+	_handleListPress = data => {
+		switch (data) {
+			case "Sair":
+				this.props.screenProps.logout()
+				break;
+		
+			default:
+				this.props.navigation.navigate(data)
+				this.props.navigation.closeDrawer()
+				break;
+		}
+
+	}
+	render() {
+		let login, dataArray = routes.slice();
+		if (this.props.screenProps.user) {
+			dataArray[routes.length] = "Sair"
+			login = (
+				<Text style={{...styles.user_name}}>{this.props.screenProps.user.name}</Text>
+			)
+		} else {
+			login = (
+				<Button style={{alignSelf: "center"}} onPress={this._handleLoginButton}><Text>Fazer login</Text></Button>
+			)
+		}
+		return (
+			<Container>
+				<Content>
+					<View
+						style={{ ...styles.thumb_holder }}
+					>
+						<Image
+							source={{
+								uri:
+									"https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
+							}}
+							style={{...styles.thumb}}
+						/>
+						{login}
+					</View>
+					<List
+						dataArray={dataArray}
+						renderRow={data => {
+							return (
+								<ListItem
+									button
+									onPress={() => this._handleListPress(data)}
+								>
+									<Text>{data}</Text>
+								</ListItem>
+							);
+						}}
+					/>
+				</Content>
+			</Container>
+		);
+	}
 }
+
+const styles = StyleSheet.create({
+	user_name: {
+		color: "#fff",
+		fontSize: 25
+	},
+	thumb_holder: {
+		height: 120,
+		flexDirection: "column",
+		justifyContent: "flex-end",
+		padding: 10
+	},
+	thumb: {
+		left: 0,
+		right: 0,
+		top: 0,
+		bottom: 0,
+		alignSelf: "stretch",
+		position: "absolute"
+	}
+})

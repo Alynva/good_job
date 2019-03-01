@@ -4,12 +4,28 @@ import { Root } from 'native-base'
 import { AppLoading, Asset, Font } from 'expo';
 import Navigator from "./src/navigation/Navigator"
 
+const defaultUser = {
+	name: "Alisson Nunes"
+}
+
 export default class App extends React.Component {
 	state = {
 		isLoadingComplete: false,
+		user: null
 	};
+	_login() {
+		this.setState({ user: defaultUser })
+	}
+	_logout() {
+		this.setState({ user: null })
+	}
 
 	render() {
+		let screenProps = {
+			user: this.state.user,
+			login: this._login.bind(this),
+			logout: this._logout.bind(this),
+		}
 		if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
 			return (
 				<AppLoading
@@ -23,7 +39,7 @@ export default class App extends React.Component {
 				<View style={styles.container}>
 					{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 					<Root>
-						<Navigator />
+						<Navigator screenProps={screenProps} />
 					</Root>
 				</View>
 			);

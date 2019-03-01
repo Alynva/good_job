@@ -42,7 +42,7 @@ class CompanyPageScreen extends React.Component {
                     renderRow={data => {
                         return (
                                 <View>
-                                    <ListItem onPress={() => navigator.navigate("LandingPage")}>
+                                    <ListItem onPress={() => navigator.navigate("JobPage")}>
                                         <Left style={styles.listItemLeft}>
                                             <View style={styles.leftHolder}>
                                                 <Text>{data.nome}</Text>                                             

@@ -13,24 +13,36 @@ import {
 const routes = ["LandingPage", "MessagesPage"];
 
 export default class SideBar extends React.Component {
-	_handleLoginButton = () => {
-		let destination = this.props.navigation.state.routes[this.props.navigation.state.index].routeName
+	_handleLoginButton = () => {console.log(this.props.navigation)
+		let destination = this.props.navigation.state.routes[0].routes[this.props.navigation.state.routes[0].index].routeName
 		this.props.navigation.navigate("LoginPage", {
 			redirectTo: destination,
 			backTo: destination
 		})
+		this.props.navigation.closeDrawer()
 	}
 	_handleListPress = data => {
 		switch (data) {
 			case "Sair":
 				this.props.screenProps.logout()
 				break;
+			case "MessagesPage":
+				let backDestination = this.props.navigation.state.routes[0].routes[0].routeName
+				console.log(this.props.navigation)
+				if (this.props.screenProps.user) {
+					this.props.navigation.navigate(data)
+				} else
+					this.props.navigation.navigate("LoginPage", {
+						redirectTo: data,
+						backTo: backDestination,
+					})
+				break;
 		
 			default:
 				this.props.navigation.navigate(data)
-				this.props.navigation.closeDrawer()
 				break;
 		}
+		this.props.navigation.closeDrawer()
 
 	}
 	render() {

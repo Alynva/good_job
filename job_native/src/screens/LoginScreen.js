@@ -6,11 +6,18 @@ import { StyleSheet } from "react-native"
 export default class LoginScreen extends React.Component {
     _handleLogin = () => {
         this.props.screenProps.login()
-        let { redirectTo } = this.props.navigation.state.params
-        this.props.navigation.navigate(redirectTo)
+        
+        let { state } = this.props.navigation
+        if (state && state.params && state.params.redirectTo) {
+            let { redirectTo } = this.props.navigation.state.params || "LandingPage"
+            this.props.navigation.navigate(redirectTo)
+        }
     }
     _handleSkip = () => {
-        this.props.navigation.navigate(this.props.navigation.state.params.backTo)
+        let { state } = this.props.navigation
+        if (state && state.params && state.params.backTo)
+            this.props.navigation.navigate(this.props.navigation.state.params.backTo || "LandingPage")
+        this.props.navigation.navigate("LandingPage")
     }
     render() {
         let content = (

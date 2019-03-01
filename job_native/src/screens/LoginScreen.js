@@ -6,15 +6,23 @@ import { StyleSheet } from "react-native"
 export default class LoginScreen extends React.Component {
     _handleLogin = () => {
         this.props.screenProps.login()
-        this.props.navigation.navigate(this.props.navigation.state.params.redirectTo)
+        
+        let { state } = this.props.navigation
+        if (state && state.params && state.params.redirectTo) {
+            let { redirectTo } = this.props.navigation.state.params || "LandingPage"
+            this.props.navigation.navigate(redirectTo)
+        }
     }
     _handleSkip = () => {
-        this.props.navigation.navigate(this.props.navigation.state.params.redirectTo)
+        let { state } = this.props.navigation
+        if (state && state.params && state.params.backTo)
+            this.props.navigation.navigate(this.props.navigation.state.params.backTo || "LandingPage")
+        this.props.navigation.navigate("LandingPage")
     }
     render() {
         let content = (
             <Container style={{...styles.login_container}}>
-                <Text style={{...styles.login_text}}>Ao fazer login, você poderá ter acesso à novas funcionalidades, tais como entrar em contato direto com colaboradores das empresas, candita-se à vagas e muito mais!</Text>
+                <Text style={{...styles.login_text}}>Ao fazer login, você poderá ter acesso a novas funcionalidades, tais como entrar em contato direto com colaboradores das empresas, candidatar-se a vagas e muito mais!</Text>
                 <Button
                     style={{ alignSelf: "center" }}
                     large onPress={this._handleLogin}

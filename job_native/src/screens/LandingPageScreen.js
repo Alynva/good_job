@@ -15,8 +15,8 @@ class LandingPageScreen extends React.Component {
         list: [
             {
                 name: "Monitora",
-                slogan: "Soluções tecnologicas",
-                jobs: "30 vagas",
+                slogan: "Soluções tecnológicas",
+                jobs: "57 vagas",
                 picture: "https://www.monitoratec.com.br/img/monitora-ambiente.jpg",
             },
             {
@@ -26,48 +26,37 @@ class LandingPageScreen extends React.Component {
                 picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
             },
             {
-                name: "Serasa Experian",
-                slogan: "A gente trabalha para você crescer",
-                jobs: "24 vagas",
-                picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+                name: "iFood",
+                slogan: "O jeito mais fácil de pedir delivery de comida.",
+                jobs: "15 vagas",
+                picture: "http://tibahia.com/upload/images/2018-01-18/20180118054653_ifood-pessoas-2.jpg",
             },
             {
-                name: "Serasa Experian",
-                slogan: "A gente trabalha para você crescer",
-                jobs: "24 vagas",
-                picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+                name: "Wavy Global",
+                slogan: "Building Strong Relations",
+                jobs: "6 vagas",
+                picture: "https://abrilexame.files.wordpress.com/2017/07/movile_sao_paulo2.jpg",
             },
             {
-                name: "Serasa Experian",
-                slogan: "A gente trabalha para você crescer",
-                jobs: "24 vagas",
-                picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
-            },
-            {
-                name: "Serasa Experian",
-                slogan: "A gente trabalha para você crescer",
-                jobs: "24 vagas",
-                picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
-            },
-            {
-                name: "Serasa Experian",
-                slogan: "A gente trabalha para você crescer",
-                jobs: "24 vagas",
-                picture: "https://www.inova.jor.br/wp-content/uploads/2018/07/hackathon.jpg",
+                name: "Movile",
+                slogan: "We Think Mobile",
+                jobs: "13 vagas",
+                picture: "https://www.gazetadopovo.com.br/ra/mega/Pub/GP/p4/2018/06/13/Economia/Imagens/Vivo/1407522922_Movile.jpg",
             },
         ],        
     }
     _handleFilterPress = () => {
         ActionSheet.show({
-            options: REGIOES,
-            cancelButtonIndex: REGIOES.length-1,
-            title: "Escolha sua região"
-        }, 
-        buttonIndex => {
-            if (buttonIndex != REGIOES.length - 1) {
-                this.setState({ regiao: REGIOES[buttonIndex] }, this._updateList);
+                options: REGIOES,
+                cancelButtonIndex: REGIOES.length-1,
+                title: "Escolha sua região"
+            }, 
+            buttonIndex => {
+                if (buttonIndex != REGIOES.length - 1) {
+                    this.setState({ regiao: REGIOES[buttonIndex] }, this._updateList);
+                }
             }
-        })
+        )
     }
     _updateList() {
         this.setState({ isLoading: true })
@@ -151,13 +140,11 @@ const styles = StyleSheet.create({
     cardItem: {
     },
     cardLeft: {
-        position: "relative",
+        alignItems: "stretch",
+        justifyContent: "flex-end",
     },
     leftHolder: {
-        flexDirection: "column",
-        justifyContent: 'space-between',
         flex: 1,
-        position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
     },
     cardRight: {
         flex: 1,

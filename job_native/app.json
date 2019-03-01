@@ -2,6 +2,12 @@
   "expo": {
     "name": "Good Job",
     "slug": "good_job",
+    "description": "Encontre a empresa que mais combina com você!",
+    "keywords": [
+      "jobs", "react", "react-native"
+    ],
+    "website": "https://expo.io/@ota/good_job",
+    "repository": "https://github.com/Alynva/good_job",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
